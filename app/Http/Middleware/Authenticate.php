@@ -1,5 +1,7 @@
 <?php
 
+// Developer: Md. Mir Hossain | Reviewed: 2025-10-19
+
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
