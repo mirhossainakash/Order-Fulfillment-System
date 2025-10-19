@@ -1,9 +1,14 @@
 <?php
 
+// Developer: Md. Mir Hossain | Reviewed: 2025-10-19
+
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\User;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Create buyers and sellers
+        $buyers = User::factory()->count(3)->state(['role' => 'buyer'])->create();
+        $sellers = User::factory()->count(2)->state(['role' => 'seller'])->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        foreach ($sellers as $seller) {
+            Product::factory()->count(5)->create(['user_id' => $seller->id]);
+        }
+
+        // Default test user
+        User::factory()->create([
+            'name' => 'Buyer User',
+            'email' => 'buyer@example.com',
+            'role' => 'buyer',
+            'password' => bcrypt('password'),
+        ]);
+        User::factory()->create([
+            'name' => 'Seller User',
+            'email' => 'seller@example.com',
+            'role' => 'seller',
+            'password' => bcrypt('password'),
+        ]);
     }
 }
