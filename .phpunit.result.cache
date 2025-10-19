@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"Tests\\Feature\\ExampleTest::test_the_application_returns_a_successful_response":0.12,"Tests\\Feature\\OrderPlacementTest::test_buyer_can_place_order_and_stock_decrements":0.099,"Tests\\Feature\\OrderPlacementTest::test_buyer_cannot_view_others_orders":0.014}}
