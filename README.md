@@ -45,6 +45,17 @@ Run tests:
 php artisan test --testsuite=Feature
 ```
 
+## Postman Collection
+- Import `postman/Order-Fulfillment-System.postman_collection.json` and `postman/Order-Fulfillment-System.postman_environment.json` into Postman.
+- Select the "Order Fulfillment Local" environment and update `baseUrl` if needed.
+- Run the "Login (Buyer)" request to populate `{{token}}`, then create orders and list purchases/sales.
+
+Optional: run via Newman
+```
+npx newman run postman/Order-Fulfillment-System.postman_collection.json \
+	-e postman/Order-Fulfillment-System.postman_environment.json
+```
+
 ## Developer Notes
 - All PHP files include a header comment:
 // Developer: Md. Mir Hossain | Reviewed: 2025‑10‑19
